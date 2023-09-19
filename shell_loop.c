@@ -97,14 +97,14 @@ int find_builtin(info_t *info)
 {
 	int a, built_in_ret = -1;
 	builtin_table builtintbl[] = {
-		{"exit", _myexit},
-		{"env", _myenv},
-		{"help", _myhelp},
-		{"history", _myhistory},
-		{"setenv", _mysetenv},
-		{"unsetenv", _myunsetenv},
-		{"cd", _mycd},
-		{"alias", _myalias},
+		{"exit", our_exit},
+		{"env", our_env},
+		{"help", our_help},
+		{"history", our_history},
+		{"setenv", our_setenv},
+		{"unsetenv", our_unsetenv},
+		{"cd", our_cd},
+		{"alias", our_alias},
 		{NULL, NULL}
 	};
 
@@ -115,7 +115,7 @@ int find_builtin(info_t *info)
 			built_in_ret = builtintbl[a].func(info);
 			break;
 		}
-		return (built_in_ret);
+	return (built_in_ret);
 }
 
 /**

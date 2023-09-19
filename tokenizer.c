@@ -17,8 +17,8 @@ char **strtow2(char *str, char d)
 		if ((str[a] != d && str[a + 1] == d) ||
 			(str[a] != d && !str[a + 1]) || str[a + 1] == d)
 			no_wrd++;
-		if (no_wrd == 0)
-			return (NULL);
+	if (no_wrd == 0)
+		return (NULL);
 	s = malloc((1 + no_wrd) * sizeof(char *));
 	if (!s)
 		return (NULL);
