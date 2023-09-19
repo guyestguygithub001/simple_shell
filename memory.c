@@ -6,7 +6,7 @@
  *
  * Return: 1 if freed, otherwise 0.
  */
-int free_point(void **ptr)
+int point_free(void **ptr)
 {
 	if (ptr && *ptr)
 	{

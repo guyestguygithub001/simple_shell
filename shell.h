@@ -160,16 +160,16 @@ void _puts(char *);
 int _putchar(char);
 
 /* toem_builtin1.c */
-int _myhistory(info_t *);
-int _myalias(info_t *);
+int our_history(info_t *);
+int our_alias(info_t *);
 
 /* toem_memory.c */
-int bfree(void **);
+int point_free(void **);
 
 /* toem_builtin.c */
-int _myexit(info_t *);
-int _mycd(info_t *);
-int _myhelp(info_t *);
+int our_exit(info_t *);
+int our_cd(info_t *);
+int our_help(info_t *);
 
 /* toem_atoi.c */
 int interactive(info_t *);
@@ -208,9 +208,9 @@ int renumber_history(info_t *info);
 
 /* toem_environ.c */
 char *_getenv(info_t *, const char *);
-int _myenv(info_t *);
-int _mysetenv(info_t *);
-int _myunsetenv(info_t *);
+int our_env(info_t *);
+int our_setenv(info_t *);
+int our_unsetenv(info_t *);
 int populate_env_list(info_t *);
 
 /* toem_lists1.c */

@@ -33,25 +33,25 @@ int interactive(info_t *info)
 
 int _atoi(char *s)
 {
-	int i, sign = 1, flag = 0, output;
+	int a, symbol = 1, flag = 0, output;
 	unsigned int result = 0;
 
-	for (i = 0;  s[i] != '\0' && flag != 2; i++)
+	for (a = 0;  s[a] != '\0' && flag != 2; a++)
 	{
-		if (s[i] == '-')
-			sign *= -1;
+		if (s[a] == '-')
+			symbol *= -1;
 
-		if (s[i] >= '0' && s[i] <= '9')
+		if (s[a] >= '0' && s[a] <= '9')
 		{
 			flag = 1;
 			result *= 10;
-			result += (s[i] - '0');
+			result += (s[a] - '0');
 		}
 		else if (flag == 1)
 			flag = 2;
 	}
 
-	if (sign == -1)
+	if (symbol == -1)
 		output = -result;
 	else
 		output = result;

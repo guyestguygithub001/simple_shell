@@ -9,28 +9,28 @@
  */
 int unset_alias(info_t *info, char *str)
 {
-	char *p, c;
-	int ret;
+	char *p, b;
+	int retrn;
 
 	p = _strchr(str, '=');
 	if (!p)
 		return (1);
-	c = *p;
+	b = *p;
 	*p = 0;
-	ret = delete_node_at_index(&(info->alias),
+	retrn = delete_node_at_index(&(info->alias),
 		get_node_index(info->alias, node_starts_with(info->alias, str, -1)));
-	*p = c;
-	return (ret);
+	*p = b;
+	return (retrn);
 }
 
 /**
- * _myhistory - displays history list, one command by line, preceded..
+ * our_history - displays history list, one command by line, preceded..
  *              with line no. starts at 0.
  * @info: Struct. containing potential args. to maintain
  *        constant function prototype..
  *  Return: Always 0
  */
-int _myhistory(info_t *info)
+int our_history(info_t *info)
 {
 	print_list(info->history);
 	return (0);
@@ -38,14 +38,14 @@ int _myhistory(info_t *info)
 
 
 /**
- * _myalias - mimics the alias builtin (man alias)..
+ * our_alias - mimics the alias builtin (man alias)..
  * @info: Struct containing potential args. Used to maintain
  *          constant func prototype..
  *  Return: Always 0 if Successful..
  */
-int _myalias(info_t *info)
+int our_alias(info_t *info)
 {
-	int i = 0;
+	int a = 0;
 	char *p = NULL;
 	list_t *node = NULL;
 
@@ -59,13 +59,13 @@ int _myalias(info_t *info)
 		}
 		return (0);
 	}
-	for (i = 1; info->argv[i]; i++)
+	for (a = 1; info->argv[a]; a++)
 	{
-		p = _strchr(info->argv[i], '=');
+		p = _strchr(info->argv[a], '=');
 		if (p)
-			unset_alias(info, info->argv[i]);
+			unset_alias(info, info->argv[a]);
 		else
-			print_list(node_starts_with(info->alias, info->argv[i], '='));
+			print_list(node_starts_with(info->alias, info->argv[a], '='));
 	}
 
 	return (0);

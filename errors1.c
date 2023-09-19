@@ -28,33 +28,33 @@ void print_error(info_t *info, char *estr)
 int print_d(int input, int fd)
 {
 	int (*__putchar)(char) = _putchar;
-	int i, count = 0;
-	unsigned int _abs_, current;
+	int a, sum = 0;
+	unsigned int _br, current;
 
 	if (fd == STDERR_FILENO)
 		__putchar = _eputchar;
 	if (input < 0)
 	{
-		_abs_ = -input;
+		_br = -input;
 		__putchar('-');
-		count++;
+		sum++;
 	}
 	else
-		_abs_ = input;
-	current = _abs_;
-	for (i = 1000000000; i > 1; i /= 10)
+		_br = input;
+	current = _br;
+	for (a = 1000000000; a > 1; a /= 10)
 	{
-		if (_abs_ / i)
+		if (_br / a)
 		{
-			__putchar('0' + current / i);
-			count++;
+			__putchar('0' + current / a);
+			sum++;
 		}
-		current %= i;
+		current %= a;
 	}
 	__putchar('0' + current);
-	count++;
+	sum++;
 
-	return (count);
+	return (sum);
 }
 
 /**
@@ -65,24 +65,24 @@ int print_d(int input, int fd)
  */
 int _erratoi(char *s)
 {
-	int i = 0;
-	unsigned long int result = 0;
+	int a = 0;
+	unsigned long int output = 0;
 
 	if (*s == '+')
 		s++;  /* TODO: why this allows main return 255? */
-	for (i = 0;  s[i] != '\0'; i++)
+	for (a = 0;  s[a] != '\0'; a++)
 	{
-		if (s[i] >= '0' && s[i] <= '9')
+		if (s[a] >= '0' && s[a] <= '9')
 		{
-			result *= 10;
-			result += (s[i] - '0');
-			if (result > INT_MAX)
+			output *= 10;
+			output += (s[a] - '0');
+			if (output > INT_MAX)
 				return (-1);
 		}
 		else
 			return (-1);
 	}
-	return (result);
+	return (output);
 }
 
 /**
@@ -93,12 +93,12 @@ int _erratoi(char *s)
  */
 void remove_comments(char *buf)
 {
-	int i;
+	int a;
 
-	for (i = 0; buf[i] != '\0'; i++)
-		if (buf[i] == '#' && (!i || buf[i - 1] == ' '))
+	for (a = 0; buf[a] != '\0'; a++)
+		if (buf[a] == '#' && (!a || buf[a - 1] == ' '))
 		{
-			buf[i] = '\0';
+			buf[a] = '\0';
 			break;
 		}
 }
